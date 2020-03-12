@@ -3,6 +3,8 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class ComBD {
+	public String color;
+	public vehiculos.Vehiculo v;
 	private String nombre ="bdt-concesionario";
 	private String url ="jdbc:mysql://localhost";
 	private String usuario = "root";
@@ -17,5 +19,29 @@ public class ComBD {
 			JOptionPane.showMessageDialog(null, ex);
 		}
 		return link;
+	}
+	void consultaCoche() {
+		
+	}
+	void meteCoche() {
+		
+	}
+	void borraCoche() {
+		
+	}
+	void cambiarColorCoche() {
+		
+	}
+	void consultaCamion() {
+		
+	}
+	void meteCamion() {
+		
+	}
+	void borraCamion() {
+		
+	}
+	void cambiarColorCamion() {
+		
 	}
 }
