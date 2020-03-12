@@ -1,4 +1,4 @@
-package RetoG1.vehiculos;
+package vehiculos;
 
 public class Coche extends Vehiculo {
 	private int numPuertas;

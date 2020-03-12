@@ -1,4 +1,4 @@
-package RetoG1.vehiculos;
+package vehiculos;
 
 public class Vehiculo {
 protected int numBastidor;
