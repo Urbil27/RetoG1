@@ -1,4 +1,4 @@
-package vehiculos;
+package RetoG1.vehiculos;
 
 public class Camion extends Vehiculo {
 	private float carga;
