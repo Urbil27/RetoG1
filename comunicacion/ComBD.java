@@ -1,6 +1,8 @@
 package comunicacion;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
+
 
 public class ComBD {
 	public String color;
