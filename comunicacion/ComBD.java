@@ -10,7 +10,7 @@ public class ComBD {
 	ComBD(){
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			DriverManager.getConnection("jdbc://mysql://localhost:3306/btd_concesionario","root", "root");
+			DriverManager.getConnection("jdbc:mysql://localhost:3306/BDT_CONCESIONARIO","root", "root");
 			System.out.println("Conexión OK");
 		} catch(ClassNotFoundException e){
 			System.out.println("Error al cargar el controlador");
