@@ -5,7 +5,7 @@ public class Camion extends Vehiculo {
 	private float carga;
 	private char tipoMercancia;
 	
-	Camion(float car, char tipMer,String matr, int numB, String col, int numAs, int se, float pre, boolean pint) {
+	public Camion(float car, char tipMer,String matr, int numB, String col, int numAs, int se, float pre, boolean pint) {
 		super(matr,numB, col, numAs, se, pre, pint);
 		carga=car;
 		tipoMercancia=tipMer;
