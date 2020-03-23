@@ -284,7 +284,17 @@ public class ComBD {
 		return s1;
 	}
 	void meteCompra(acciones.Compra compra) {
-		
+		Statement stm = null;	
+		try {
+				stm=conexion.createStatement();
+				String matricula = compra.getMatricula();
+				float precio = compra.getPrecio();
+				System.out.println("El coche se ha añadido correctamente");
+				stm.executeUpdate("INSERT into compra (matricula,precio) VALUES ("+matricula+","+precio+");");
+		}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	void consultaCompra() {
 		
