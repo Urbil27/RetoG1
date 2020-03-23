@@ -10,6 +10,10 @@ public class Menu {
 		//Para entrar en un bucle en el que se muestre el menú para realizar las acciones, crearemos una variable que sea distinta a 8 a no ser que se quiera salir.
 		int opcion = 0; 
 		
+		// creamos la conexion con la base de datos, es decir llamamos a la clase comBD
+		ComBD conexion = new ComBD();
+		conexion.conectar();
+		
 		System.out.println("Bienvenido, pongamonos a trabajar.");
 		System.out.println();
 		
@@ -50,7 +54,8 @@ public class Menu {
 			
 				//en caso de que la opción introducida sea 1(en estecaso, se ejecutará el siguiente código; de esta forma se realizarán las acciones para el trabajo)
 				case 1:
-					System.out.println("opcion 1");
+					System.out.println("Coche 1:");
+					conexion.muestraStockCoche();
 					break;
 				case 2:
 					System.out.println("opcion 2");

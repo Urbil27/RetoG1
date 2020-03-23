@@ -15,11 +15,17 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
+
+import comunicacion.ComBD;
  
 public class Estructura{
- 
+	
     public static void main(String[] args) {
- 
+    	
+    	// creamos la conexion con la base de datos, es decir llamamos a la clase comBD
+    	ComBD conexion = new ComBD();
+    	conexion.conectar();
+    	
         try {
             // Creo una instancia de DocumentBuilderFactory
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -207,7 +213,7 @@ public class Estructura{
             // Asocio el source con el Document
             Source source = new DOMSource(documento);
             // Creo el Result, indicado que fichero se va a crear
-            Result result = new StreamResult(new File("pruebaMARKI.xml"));
+            Result result = new StreamResult(new File("pruebaMARKII.xml"));
  
             // Creo un transformer, se crea el fichero XML
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
