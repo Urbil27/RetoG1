@@ -1,14 +1,14 @@
 package acciones;
-
+import java.util.Scanner;
 public class Compra {
-	
-	vehiculos.Vehiculo c1;
-	
+	float precio;
+	String matricula;
 	Compra(vehiculos.Vehiculo c){
-		c1=c;
+	matricula=c.getMatricula();
 	}
 	
 	String comprar(){
+		Scanner teclado = new Scanner(System.in);
 		
 		return "Se ha realizado correctamente la compra del vehículo.";
 	}
