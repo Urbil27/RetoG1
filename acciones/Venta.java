@@ -35,6 +35,7 @@ public class Venta {
 			System.out.println("Has elegido la opcion COCHE");
 			System.out.println("Inserte la matricula del coche:");
 			String matricula =teclado.nextLine();
+			matricula =teclado.nextLine();
 			System.out.println("¿Está seguro de que desea vender este coche?");
 			System.out.println("Matricula: "+conexion.consultaCoche(matricula).getMatricula());
 			System.out.println("Numero de bastidor: "+ conexion.consultaCoche(matricula).getNumBastidor());

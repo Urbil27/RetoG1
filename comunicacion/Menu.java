@@ -4,6 +4,7 @@ import java.util.Scanner;
 import acciones.Compra;
 import acciones.Pinta;
 import acciones.Venta;
+import otros.Serie;
 
 public class Menu {
 	public static void main(String args[]) {
@@ -34,7 +35,8 @@ public class Menu {
 			System.out.println("8.-Vender Vehículo.");
 			System.out.println("9.-Exportar Datos.");
 			System.out.println("10.-Importar Datos.");
-			System.out.println("11.-Salir.");
+			System.out.println("11.-Meter una serie.");
+			System.out.println("12.-Salir.");
 			
 			System.out.println();
 			
@@ -43,7 +45,7 @@ public class Menu {
 			opcion = teclado.nextInt();
 			
 			//comprobaremos que el usuario introduce un valor por el cual pueda elegir una opción.
-			while(opcion <= 0 || opcion > 11) {
+			while(opcion <= 0 || opcion > 12) {
 				System.out.println("");
 				System.out.println("Parece que ha habido un error; Asegúrate de introducir una opción que esté disponible.");
 				System.out.println("(un número entre 1 y 9.)");
@@ -75,6 +77,7 @@ public class Menu {
 					System.out.println("3.-Mostrar coches por color.");
 					System.out.println("Introduce el color que quieres buscar.");
 					String colo = teclado.nextLine();
+					colo = teclado.nextLine();
 					conexion.muestraColorCoche(colo);
 					break;
 				
@@ -82,6 +85,7 @@ public class Menu {
 				case 4:
 					System.out.println("4.-Mostrar camiones por color.");
 					String col = teclado.nextLine();
+					col = teclado.nextLine();
 					conexion.muestraColorCamion(col);
 					break;
 			    // en caso de que la opcion introducida sea la 5; mostrará las series que hay disponibles
@@ -118,12 +122,24 @@ public class Menu {
 					System.out.println("10.-Importar Datos.");
 					
 					break;
+				case 11:
+					System.out.println("Dime el código de la serie");
+					int codSerie1 = teclado.nextInt();
+					System.out.println("Dime el modelo para introducirlo a la serie.");
+					String modelo = teclado.nextLine();
+					System.out.println("Dime la marca para introducirla a la serie.");
+					String marca = teclado.nextLine();
+					System.out.println("Dime el año de fabricación (dd/mm/aa) para introducirlo a la serie.");
+					String fecha = teclado.nextLine();
+					Serie s1 = new Serie(codSerie1, modelo, marca, fecha);
+					conexion.meteSerie(s1);
+					break;
 			}
 			
 			System.out.println();
 			System.out.println();
 		}
-		while(opcion != 11);
+		while(opcion != 12);
 		//FIN del programa
 		System.out.println("Fin del programa");
 	}
