@@ -73,11 +73,16 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 3; mostrará todos los coches de un mismo color.
 				case 3:
 					System.out.println("3.-Mostrar coches por color.");
+					System.out.println("Introduce el color que quieres buscar.");
+					String colo = teclado.nextLine();
+					conexion.muestraColorCoche(colo);
 					break;
 				
 				// en caso de que la opcion introducida sea la 4; mostrará todos los camiones de un mismo color.
 				case 4:
 					System.out.println("4.-Mostrar camiones por color.");
+					String col = teclado.nextLine();
+					conexion.muestraColorCamion(col);
 					break;
 			    // en caso de que la opcion introducida sea la 5; mostrará las series que hay disponibles
 				case 5:
