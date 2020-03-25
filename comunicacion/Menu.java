@@ -84,6 +84,7 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 4; mostrará todos los camiones de un mismo color.
 				case 4:
 					System.out.println("4.-Mostrar camiones por color.");
+					System.out.println("Introduce el color que quieres buscar.");
 					String col = teclado.nextLine();
 					col = teclado.nextLine();
 					conexion.muestraColorCamion(col);
@@ -127,6 +128,7 @@ public class Menu {
 					int codSerie1 = teclado.nextInt();
 					System.out.println("Dime el modelo para introducirlo a la serie.");
 					String modelo = teclado.nextLine();
+					modelo = teclado.nextLine();
 					System.out.println("Dime la marca para introducirla a la serie.");
 					String marca = teclado.nextLine();
 					System.out.println("Dime el año de fabricación (dd/mm/aa) para introducirlo a la serie.");
