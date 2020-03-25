@@ -94,7 +94,6 @@ public class Menu {
 					System.out.println("5.-Mostrar Series.");
 					System.out.println("Introduce el código de la serie que quieres que te muestre:");
 					int codSerie = teclado.nextInt();
-					
 					System.out.println( conexion.consultaSerie(codSerie).getMarca());
 					System.out.println( conexion.consultaSerie(codSerie).getModelo());
 					System.out.println( conexion.consultaSerie(codSerie).getAñoFabricacion());
