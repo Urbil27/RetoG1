@@ -4,8 +4,8 @@ public class Serie {
 	private int codSerie;
 	private String modelo;
 	private String marca;
-	private String añoFabricacion;
-	public Serie(int cod, String model,String marc, String añoFabri) {
+	private int añoFabricacion;
+	public Serie(int cod, String model,String marc, int añoFabri) {
 		codSerie = cod;
 		modelo=model;
 		marca=marc;
@@ -29,10 +29,10 @@ public class Serie {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	public String getAñoFabricacion() {
+	public int getAñoFabricacion() {
 		return añoFabricacion;
 	}
-	public void setAñoFabricacion(String añoFabricacion) {
+	public void setAñoFabricacion(int añoFabricacion) {
 		this.añoFabricacion = añoFabricacion;
 	}
 	

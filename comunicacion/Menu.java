@@ -93,7 +93,10 @@ public class Menu {
 					System.out.println("5.-Mostrar Series.");
 					System.out.println("Introduce el código de la serie que quieres que te muestre:");
 					int codSerie = teclado.nextInt();
-					conexion.consultaSerie(codSerie);
+					
+					System.out.println( conexion.consultaSerie(codSerie).getMarca());
+					System.out.println( conexion.consultaSerie(codSerie).getModelo());
+					System.out.println( conexion.consultaSerie(codSerie).getAñoFabricacion());
 					break;
 				// en caso de que la opcion introducida sea la 6; se elegirá un vehiculo para pintarlo
 				case 6:
@@ -127,11 +130,12 @@ public class Menu {
 					int codSerie1 = teclado.nextInt();
 					System.out.println("Dime el modelo para introducirlo a la serie.");
 					String modelo = teclado.nextLine();
+					modelo = teclado.nextLine();
 					System.out.println("Dime la marca para introducirla a la serie.");
 					String marca = teclado.nextLine();
-					System.out.println("Dime el año de fabricación (dd/mm/aa) para introducirlo a la serie.");
-					String fecha = teclado.nextLine();
-					Serie s1 = new Serie(codSerie1, modelo, marca, fecha);
+					System.out.println("Dime el año de fabricación para introducirlo a la serie.");
+					int añoFabricacion = teclado.nextInt();
+					Serie s1 = new Serie(codSerie1, modelo, marca, añoFabricacion);
 					conexion.meteSerie(s1);
 					break;
 			}

@@ -359,10 +359,11 @@ public class ComBD {
 		
 		try {
 			stm=conexion.createStatement();
+			int codSerie = serieAMeter.getCodSerie();
 			String modelo = serieAMeter.getModelo();
 			String marca = serieAMeter.getMarca();
-			String añoDeFabricacion = serieAMeter.getAñoFabricacion();
-			stm.executeUpdate("INSERT into serie (modelo,marca,añoDeFabricacion) VALUES ("+modelo+","+marca+","+añoDeFabricacion+");");
+			int añoDeFabricacion = serieAMeter.getAñoFabricacion();
+			stm.executeUpdate("INSERT into serie (codSerie,modelo,marca,añoFabricacion) VALUES ("+codSerie+","+"\""+modelo+"\""+","+"\""+marca+"\""+","+"\""+añoDeFabricacion+"\""+");");
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -371,7 +372,7 @@ public class ComBD {
 	
 	//Le pasamos el codigo de serie y nos devuelve una serie
 	public otros.Serie consultaSerie(int codSerie) {
-		otros.Serie s1= new otros.Serie(0,"","","");
+		otros.Serie s1= new otros.Serie(0,"","",0);
 		Statement stm = null;
 		ResultSet respuesta = null;
 		try {
@@ -381,7 +382,7 @@ public class ComBD {
 				int cod = respuesta.getInt(1);
 				String modelo =respuesta.getString(2);
 				String marca = respuesta.getString(3);
-				String añoFabricacion = respuesta.getString(4);
+				int añoFabricacion = respuesta.getInt(4);
 				otros.Serie s2 = new otros.Serie(cod,modelo,marca,añoFabricacion);
 				s1=s2;
 			}

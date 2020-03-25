@@ -21,7 +21,7 @@ public class Pinta {
 		System.out.println("2) Coche");
 		int opcion = teclado.nextInt();
 		
-		while(opcion != 1 || opcion != 2) {
+		while(opcion != 1 && opcion != 2) {
 			System.out.println("No has introducido correctamente tu eleccion.");
 			System.out.println("Porfavor, introduce el vehiculo que vas a pintar");
 			System.out.println("1) Camión");
@@ -32,6 +32,7 @@ public class Pinta {
 				
 				System.out.println("Introduce la matricula del camion que deseas pintar");
 				String matricula = teclado.nextLine();
+				matricula = teclado.nextLine();
 				System.out.println("Introduce el nuevo color");
 				String nuevoColor = teclado.nextLine();
 				conexion.cambiarColor(conexion.consultaCamion(matricula),nuevoColor);
