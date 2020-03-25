@@ -23,10 +23,11 @@ public class Venta {
 			System.out.println("1) SI");
 			int opcion = teclado.nextInt();
 			if(opcion == 0) {
-				
+				return "Venta cancelada";
 			}
 			else if(opcion == 1) {
 				conexion.borraVehiculo(conexion.consultaCamion(matricula));
+				return "Se ha realizado correctamente la venta del vehículo.";
 			}
 			
 		}
@@ -44,14 +45,15 @@ public class Venta {
 			System.out.println("1) SI");
 			int opcion = teclado.nextInt();
 			if(opcion == 0) {
-				
+				return "Venta cancelada";
 			}
 			else if (opcion == 1) {
 				conexion.borraVehiculo(conexion.consultaCoche(matricula));
+				return "Se ha realizado correctamente la venta del vehículo.";
 			}
 			
 		}
 		
-		return "Se ha realizado correctamente la venta del vehículo.";
+		return "";
 	}
 }

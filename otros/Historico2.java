@@ -7,7 +7,7 @@ import java.io.FileWriter;
 public class Historico2 {
     public static void main(String ars[]){
         try {
-            String ruta = "C:/Users/Zaballuko/Desktop/Miguel/Miguel Zabal Ciclo/RetoPrograma/Programa/pruebahistorico3.txt";
+            String ruta = "pruebahistorico3.txt";
             String contenido = "Contenido de ejemplo";
             File file = new File(ruta);
            
