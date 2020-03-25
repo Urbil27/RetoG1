@@ -203,6 +203,7 @@ public class ComBD {
 			e.printStackTrace();
 		}
 	}
+	//A este metodo de le pasa un vehiculo y cambia el atributo pintado a true
 	public void pintarVehiculo(vehiculos.Vehiculo vehiculoAPintar) {
 		Statement stm = null;
 		try {
