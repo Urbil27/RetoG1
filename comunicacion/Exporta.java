@@ -1,4 +1,4 @@
-package Estructuras_XML;
+package comunicacion;
 
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
@@ -15,10 +15,8 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
-
-import comunicacion.ComBD;
  
-public class Estructura{
+public class Exporta{
 	
     public static void main(String[] args) {
     	

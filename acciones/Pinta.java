@@ -8,5 +8,4 @@ public class Pinta {
 		p1=p;
 	}
 	
-	
 }

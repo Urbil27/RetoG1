@@ -80,6 +80,43 @@ public class ComBD {
 		
 	}
 	
+	//muestra todos los camiones que tenemos en stock y sus características
+	
+	void muestraStockCamion() {
+		
+		Statement stm = null;
+		ResultSet respuesta = null;
+		try {
+			stm=conexion.createStatement();
+			respuesta = stm.executeQuery("SELECT * FROM camion");
+			while(respuesta.next()) {
+				int numBastidor=respuesta.getInt(1);
+				String color = respuesta.getString(2);
+				int numAsientos=respuesta.getInt(3);
+				float precio =respuesta.getFloat(4);
+				int codSerie= respuesta.getInt(5);
+				boolean pintado = respuesta.getBoolean(6);
+				String matricula =respuesta.getString(7);
+				float carga= respuesta.getFloat(8);
+				char tipoMercancia = respuesta.getString(9).charAt(0);
+				System.out.println("Numero de bastidor: "+ numBastidor);
+				System.out.println("Color: "+color);
+				System.out.println("Numero de asientos: "+numAsientos);
+				System.out.println("Precio: "+ precio+"€");
+				System.out.println("Numero de serie: "+codSerie);
+				System.out.println("Matricula: "+matricula);
+				System.out.println("Carga: "+carga);
+				System.out.println("Tipo de mercancia: "+ tipoMercancia);
+				System.out.println("Pintado: "+ pintado);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+
 	//A este metodo se le pasa una matricula y devuelve el coche que corresponde con esa matricula
 	vehiculos.Coche consultaCoche(String matri) {
 		
@@ -179,7 +216,7 @@ public class ComBD {
 		}
 	}
 	//A este metodo le pasamos una matricula y nos devuelve el camion que corresponda con esa matricula
-	vehiculos.Camion consultaCamion(String matri) {
+		vehiculos.Camion consultaCamion(String matri) {
 		vehiculos.Camion c1= new vehiculos.Camion(0,'a',"",0,"",0,0,0,false);
 		Statement stm = null;
 		ResultSet respuesta = null;
@@ -282,27 +319,5 @@ public class ComBD {
 			e.printStackTrace();
 		}
 		return s1;
-	}
-	void meteCompra(acciones.Compra compra) {
-		Statement stm = null;	
-		try {
-				stm=conexion.createStatement();
-				String matricula = compra.getMatricula();
-				float precio = compra.getPrecio();
-				System.out.println("El coche se ha añadido correctamente");
-				stm.executeUpdate("INSERT into compra (matricula,precio) VALUES ("+matricula+","+precio+");");
-		}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	void consultaCompra() {
-		
-	}
-	void meteVenta(acciones.Venta venta) {
-		
-	}
-	void consultaVenta() {
-		
 	}
 	}

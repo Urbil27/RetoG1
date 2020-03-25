@@ -13,7 +13,7 @@ import java.util.Scanner;
 		String comprar(){
 			System.out.println("Introduce la matricula del vehiculo que quieres comprar.");
 			Scanner teclado = new Scanner(System.in);
-			
+			// se llama
 			return "Se ha realizado correctamente la compra del vehículo.";
 		}
 
