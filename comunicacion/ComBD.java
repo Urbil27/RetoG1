@@ -46,7 +46,7 @@ public class ComBD {
 	//Muestra todos los coches que tenemos en Stock y sus caracteristicas
 	
 	
-	void muestraStockCoche() {
+	public void muestraStockCoche() {
 	
 		Statement stm = null;
 		ResultSet respuesta = null;
@@ -118,7 +118,7 @@ public class ComBD {
 	
 
 	//A este metodo se le pasa una matricula y devuelve el coche que corresponde con esa matricula
-	vehiculos.Coche consultaCoche(String matri) {
+	public vehiculos.Coche consultaCoche(String matri) {
 		
 		vehiculos.Coche c1= new vehiculos.Coche(0,0,"",0,"",0,0,0,false);
 		Statement stm = null;
@@ -152,7 +152,7 @@ public class ComBD {
 	}
 	
 	//A este metodo se le pasa un coche y lo introduce en la base de datos
-	void meteVehiculo(vehiculos.Coche cocheAMeter) {
+	public void meteVehiculo(vehiculos.Coche cocheAMeter) {
 			Statement stm = null;
 			try {
 				stm=conexion.createStatement();
@@ -175,7 +175,7 @@ public class ComBD {
 	}
 	
 	//A este metodo se le pasa un coche y lo eliminar de la base de datos
-	void borraVehiculo(vehiculos.Coche cocheABorrar) {
+	public void borraVehiculo(vehiculos.Coche cocheABorrar) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -190,7 +190,7 @@ public class ComBD {
 	}
 	
 	//A este metodo le pasamos un vehiculo y un color y cambia el el color al vehiculo en la base de datos, tyambien pone pintado como true.
-	void cambiarColor(vehiculos.Vehiculo cocheACambiarElColor, String nuevoColor) {
+	public void cambiarColor(vehiculos.Vehiculo cocheACambiarElColor, String nuevoColor) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -203,7 +203,7 @@ public class ComBD {
 			e.printStackTrace();
 		}
 	}
-	void pintarVehiculo(vehiculos.Vehiculo vehiculoAPintar) {
+	public void pintarVehiculo(vehiculos.Vehiculo vehiculoAPintar) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -216,7 +216,11 @@ public class ComBD {
 		}
 	}
 	//A este metodo le pasamos una matricula y nos devuelve el camion que corresponda con esa matricula
+<<<<<<< HEAD
 		vehiculos.Camion consultaCamion(String matri) {
+=======
+	public vehiculos.Camion consultaCamion(String matri) {
+>>>>>>> 3d8ea74ebde43075f5a26d6483cce5059a302404
 		vehiculos.Camion c1= new vehiculos.Camion(0,'a',"",0,"",0,0,0,false);
 		Statement stm = null;
 		ResultSet respuesta = null;
@@ -248,7 +252,7 @@ public class ComBD {
 		return c1;
 	}
 	//A este metodo le pasamos un camion y lo introduce en la base de datos
-	void meteVehiculo(vehiculos.Camion camionAMeter) {
+	public void meteVehiculo(vehiculos.Camion camionAMeter) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -270,7 +274,7 @@ public class ComBD {
 					
 	}
 	//Le pasamos un camion y lo borra de la base de datos
-	void borraVehiculo(vehiculos.Camion camionABorrar) {
+	public void borraVehiculo(vehiculos.Camion camionABorrar) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -283,7 +287,7 @@ public class ComBD {
 		}
 	}
 //Le pasamos una serie y la introduce en la base de datos
-	void meteSerie(otros.Serie serieAMeter) {
+	public void meteSerie(otros.Serie serieAMeter) {
 		Statement stm = null;
 		
 		try {
@@ -299,7 +303,7 @@ public class ComBD {
 	}
 	
 	//Le pasamos el codigo de serie y nos devuelve una serie
-	otros.Serie consultaSerie(int codSerie) {
+	public otros.Serie consultaSerie(int codSerie) {
 		otros.Serie s1= new otros.Serie(0,"","","");
 		Statement stm = null;
 		ResultSet respuesta = null;
@@ -320,4 +324,9 @@ public class ComBD {
 		}
 		return s1;
 	}
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> 3d8ea74ebde43075f5a26d6483cce5059a302404
 	}
