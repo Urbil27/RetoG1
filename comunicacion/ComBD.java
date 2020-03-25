@@ -80,6 +80,73 @@ public class ComBD {
 		
 	}
 	
+	//muestra todos los coches y sus atributos dependiendo del color que tenga.
+	public void muestraColorCoche(String colo) {
+		Statement stm = null;
+		ResultSet respuesta = null;
+		try {
+			stm=conexion.createStatement();
+			respuesta = stm.executeQuery("SELECT * FROM coche WHERE color = \""+colo+"\"");
+			while(respuesta.next()) {
+				int numBastidor=respuesta.getInt(1);
+				String color = respuesta.getString(2);
+				int numAsientos=respuesta.getInt(3);
+				float precio =respuesta.getFloat(4);
+				int codSerie= respuesta.getInt(5);
+				boolean pintado = respuesta.getBoolean(6);
+				String matricula =respuesta.getString(7);
+				int numPuertas= respuesta.getInt(8);
+				int capacidadMaletero = respuesta.getInt(9);
+				System.out.println("Numero de bastidor: "+ numBastidor);
+				System.out.println("Color: "+color);
+				System.out.println("Numero de asientos: "+numAsientos);
+				System.out.println("Precio: "+ precio+"€");
+				System.out.println("Numero de serie: "+codSerie);
+				System.out.println("Matricula: "+matricula);
+				System.out.println("Numero de puertas: "+numPuertas);
+				System.out.println("Capacidad del maletero: "+ capacidadMaletero);
+				System.out.println("Pintado: "+ pintado);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//muestra todos los camiones y sus atributos dependiendo del color que tenga.
+	public void muestraColorCamion(String colo) {
+		Statement stm = null;
+		ResultSet respuesta = null;
+		try {
+			stm=conexion.createStatement();
+			respuesta = stm.executeQuery("SELECT * FROM camion WHERE color = \""+colo+"\"");
+			while(respuesta.next()) {
+				int numBastidor=respuesta.getInt(1);
+				String color = respuesta.getString(2);
+				int numAsientos=respuesta.getInt(3);
+				float precio =respuesta.getFloat(4);
+				int codSerie= respuesta.getInt(5);
+				boolean pintado = respuesta.getBoolean(6);
+				String matricula =respuesta.getString(7);
+				float carga= respuesta.getFloat(8);
+				char tipoMercancia = respuesta.getString(9).charAt(0);
+				System.out.println("Numero de bastidor: "+ numBastidor);
+				System.out.println("Color: "+color);
+				System.out.println("Numero de asientos: "+numAsientos);
+				System.out.println("Precio: "+ precio+"€");
+				System.out.println("Numero de serie: "+codSerie);
+				System.out.println("Matricula: "+matricula);
+				System.out.println("Carga: "+carga);
+				System.out.println("Tipo de mercancia: "+ tipoMercancia);
+				System.out.println("Pintado: "+ pintado);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	//muestra todos los camiones que tenemos en stock y sus características
 	
 	void muestraStockCamion() {
