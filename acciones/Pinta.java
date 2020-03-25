@@ -6,14 +6,14 @@ public class Pinta {
 
 	vehiculos.Vehiculo p1;
 	
-	Pinta(){
+	public Pinta(){
 		
 	}
 	
 	public comunicacion.ComBD conexion = new comunicacion.ComBD();
 	// Primero y gracias al siguiente metodo se cambiará el color del coche
 	
-	String pintar() {
+	public String pintar() {
 		
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Vehiculo a pintar:");

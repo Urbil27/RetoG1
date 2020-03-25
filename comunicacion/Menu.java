@@ -1,6 +1,8 @@
 package comunicacion;
 import java.util.Scanner;
 
+import acciones.Pinta;
+
 public class Menu {
 	public static void main(String args[]) {
 		
@@ -20,15 +22,16 @@ public class Menu {
 		do {
 			
 			//En este menú se muestra las opciones que se ofrecen para realizar en el trabajo.
-			System.out.println("1.-Mostrar Stock.");
-			System.out.println("2.-Mostrar Series.");
+			System.out.println("1.-Mostrar Stock de los coches disponibles.");
+			System.out.println("2.-Mostrar Stock de los camiones disponibles.");
 			System.out.println("3.-Mostrar Vehiculos por color.");
-			System.out.println("4.-Exportar Datos.");
-			System.out.println("5.-Importar Datos.");
+			System.out.println("4.-Mostrar Series.");
+			System.out.println("5.-Pintar vehículo.");
 			System.out.println("6.-Comprar Vehículo.");
 			System.out.println("7.-Vender Vehículo.");
-			System.out.println("8.-Pintar vehículo.");
-			System.out.println("9.-Salir.");
+			System.out.println("8.-Exportar Datos.");
+			System.out.println("9.-Importar Datos.");
+			System.out.println("10.-Salir.");
 			
 			System.out.println();
 			
@@ -37,7 +40,7 @@ public class Menu {
 			opcion = teclado.nextInt();
 			
 			//comprobaremos que el usuario introduce un valor por el cual pueda elegir una opción.
-			while(opcion <= 0 || opcion > 9) {
+			while(opcion <= 0 || opcion > 10) {
 				System.out.println("");
 				System.out.println("Parece que ha habido un error; Asegúrate de introducir una opción que esté disponible.");
 				System.out.println("(un número entre 1 y 9.)");
@@ -54,36 +57,42 @@ public class Menu {
 			
 				//en caso de que la opción introducida sea 1(en estecaso, se ejecutará el siguiente código; de esta forma se realizarán las acciones para el trabajo)
 				case 1:
-					System.out.println("Coche 1:");
+					System.out.println("1.-Mostrar Stock de los coches disponibles.");
 					conexion.muestraStockCoche();
 					break;
 				case 2:
-					System.out.println("opcion 2");
+					System.out.println("2.-Mostrar Stock de los camiones disponibles.");
 					break;
 				case 3:
-					System.out.println("opcion 3");
+					System.out.println("3.-Mostrar Vehiculos por color.");
 					break;
 				case 4:
-					System.out.println("opcion 4");
+					System.out.println("4.-Mostrar Series.");
 					break;
 				case 5:
-					System.out.println("opcion 5");
+					System.out.println("5.-Pintar vehículo.");
+					Pinta p1 = new Pinta();
+					p1.pintar();
 					break;
 				case 6:
-					System.out.println("opcion 6");
+					System.out.println("6.-Comprar Vehículo.");
 					break;
 				case 7:
-					System.out.println("opcion 7");
+					System.out.println("7.-Vender Vehículo.");
 					break;
 				case 8:
-					System.out.println("opcion 8");
+					System.out.println("8.-Exportar Datos.");
+					break;
+				case 9:
+					System.out.println("9.-Importar Datos.");
+					
 					break;
 			}
 			
 			System.out.println();
 			System.out.println();
 		}
-		while(opcion != 9);
+		while(opcion != 10);
 		//FIN del programa
 		System.out.println("Fin del programa");
 	}
