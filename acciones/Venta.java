@@ -3,7 +3,7 @@ import java.util.Scanner;
 import comunicacion.ComBD;
 public class Venta {
 		
-	String vender(){
+	public String vender(){
 		ComBD conexion = new ComBD();
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("¿Que vehículo quieres vender?");

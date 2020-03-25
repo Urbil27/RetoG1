@@ -6,12 +6,12 @@ import vehiculos.*;
 		float precio;
 		String matricula;
 		
-		Compra(){
+		public Compra(){
 	
 		}
 		public comunicacion.ComBD conexion = new comunicacion.ComBD();
 		// Mediante este metodo se comprará un vehiculo introducido por el usuario.
-		String comprar(){
+		public String comprar(){
 			Scanner teclado = new Scanner(System.in);
 
 
