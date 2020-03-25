@@ -13,9 +13,8 @@ import vehiculos.*;
 		// Mediante este metodo se comprará un vehiculo introducido por el usuario.
 		String comprar(){
 			Scanner teclado = new Scanner(System.in);
-<<<<<<< HEAD
-			// se llama
-=======
+
+
 			System.out.println("Vehiculo a comprar:");
 			System.out.println("1) Camión");
 			System.out.println("2) Coche");
@@ -99,7 +98,7 @@ import vehiculos.*;
 				conexion.meteVehiculo(coche);
 			}
 			
->>>>>>> 3d8ea74ebde43075f5a26d6483cce5059a302404
+
 			return "Se ha realizado correctamente la compra del vehículo.";
 		}
 

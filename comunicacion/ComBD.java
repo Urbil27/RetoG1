@@ -216,11 +216,10 @@ public class ComBD {
 		}
 	}
 	//A este metodo le pasamos una matricula y nos devuelve el camion que corresponda con esa matricula
-<<<<<<< HEAD
-		vehiculos.Camion consultaCamion(String matri) {
-=======
+
+
 	public vehiculos.Camion consultaCamion(String matri) {
->>>>>>> 3d8ea74ebde43075f5a26d6483cce5059a302404
+
 		vehiculos.Camion c1= new vehiculos.Camion(0,'a',"",0,"",0,0,0,false);
 		Statement stm = null;
 		ResultSet respuesta = null;
@@ -244,7 +243,7 @@ public class ComBD {
 				c1=c2;
 			}
 			
-			
+
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -324,9 +323,4 @@ public class ComBD {
 		}
 		return s1;
 	}
-<<<<<<< HEAD
-=======
-	
-	
->>>>>>> 3d8ea74ebde43075f5a26d6483cce5059a302404
 	}
