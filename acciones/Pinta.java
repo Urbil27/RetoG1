@@ -19,16 +19,20 @@ public class Pinta {
 		System.out.println("Vehiculo a pintar:");
 		System.out.println("1) Camión");
 		System.out.println("2) Coche");
-		int opcion = teclado.nextInt();
+		int eleccion = teclado.nextInt();
 		
+<<<<<<< HEAD
 		while(opcion != 1 && opcion != 2) {
+=======
+		while(eleccion != 1 && eleccion != 2) {
+>>>>>>> bd765c4794cbb22d844ebb8983df64049ed2cc8c
 			System.out.println("No has introducido correctamente tu eleccion.");
 			System.out.println("Porfavor, introduce el vehiculo que vas a pintar");
 			System.out.println("1) Camión");
 			System.out.println("2) Coche");
-			opcion = teclado.nextInt();
+			eleccion = teclado.nextInt();
 		}
-			if(opcion==1) {
+			if(eleccion==1) {
 				
 				System.out.println("Introduce la matricula del camion que deseas pintar");
 				String matricula = teclado.nextLine();
@@ -42,6 +46,7 @@ public class Pinta {
 				
 				System.out.println("Introduce la matricula del coche que deseas pintar");
 				String matricula = teclado.nextLine();
+				matricula = teclado.nextLine();
 				System.out.println("Introduce el nuevo color");
 				String nuevoColor = teclado.nextLine();
 				conexion.cambiarColor(conexion.consultaCoche(matricula),nuevoColor);

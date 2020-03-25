@@ -84,6 +84,7 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 4; mostrará todos los camiones de un mismo color.
 				case 4:
 					System.out.println("4.-Mostrar camiones por color.");
+					System.out.println("Introduce el color que quieres buscar.");
 					String col = teclado.nextLine();
 					col = teclado.nextLine();
 					conexion.muestraColorCamion(col);

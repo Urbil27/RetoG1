@@ -362,8 +362,13 @@ public class ComBD {
 			int codSerie = serieAMeter.getCodSerie();
 			String modelo = serieAMeter.getModelo();
 			String marca = serieAMeter.getMarca();
+<<<<<<< HEAD
 			int añoDeFabricacion = serieAMeter.getAñoFabricacion();
 			stm.executeUpdate("INSERT into serie (codSerie,modelo,marca,añoFabricacion) VALUES ("+codSerie+","+"\""+modelo+"\""+","+"\""+marca+"\""+","+"\""+añoDeFabricacion+"\""+");");
+=======
+			String añoFabricacion = serieAMeter.getAñoFabricacion();
+			stm.executeUpdate("INSERT into serie (modelo,marca,añoFabricacion) VALUES ("+modelo+","+marca+","+añoFabricacion+");");
+>>>>>>> bd765c4794cbb22d844ebb8983df64049ed2cc8c
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
