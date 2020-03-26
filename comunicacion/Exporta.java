@@ -18,7 +18,11 @@ import org.w3c.dom.Text;
  
 public class Exporta{
 	
-    public static void main(String[] args) {
+	public Exporta() {
+		
+	}
+	
+    public void crearEstructura() {
     	
     	// creamos la conexion con la base de datos, es decir llamamos a la clase comBD
     	ComBD conexion = new ComBD();

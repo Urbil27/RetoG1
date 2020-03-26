@@ -147,6 +147,7 @@ public class Menu {
 		}
 		while(opcion != 12);
 		//FIN del programa
+		conexion.desconectar();
 		System.out.println("Fin del programa");
 	}
 }
