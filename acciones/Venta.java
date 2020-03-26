@@ -2,6 +2,7 @@ package acciones;
 import java.util.Scanner;
 
 import comunicacion.ComBD;
+import otros.Historico;
 public class Venta {
 private ComBD conexion;
 	public Venta(ComBD conexion){
@@ -34,7 +35,8 @@ private ComBD conexion;
 				conexion.borraVehiculo(conexion.consultaCamion(matricula));
 				return "Se ha realizado correctamente la venta del vehículo.";
 			}
-			
+			Historico h81 = new Historico();
+			h81.crearHistorico("Se ha vendido el camion de matricula:"+matricula);
 		}
 		
 		else if(tipo == 1) {
@@ -57,7 +59,8 @@ private ComBD conexion;
 				conexion.borraVehiculo(conexion.consultaCoche(matricula));
 				return "Se ha realizado correctamente la venta del vehículo.";
 			}
-			
+			Historico h82 = new Historico();
+			h82.crearHistorico("Se ha vendido el coche de matricula:"+matricula);	
 		}
 		
 		return "";

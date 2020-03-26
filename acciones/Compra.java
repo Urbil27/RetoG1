@@ -1,6 +1,8 @@
 package acciones;
+import otros.Historico;
 import java.util.Scanner;
 import comunicacion.ComBD;
+import otros.Historico;
 import vehiculos.*;
 	public class Compra {
 		
@@ -103,7 +105,8 @@ import vehiculos.*;
 				conexion.meteVehiculo(coche);
 			}
 			
-
+			Historico h7 = new Historico();
+			h7.crearHistorico("Se ha comprado un coche de matricula:"+matricula+" a un precio de "+precio+"€");
 			return "Se ha realizado correctamente la compra del vehículo.";
 		}
 

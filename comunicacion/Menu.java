@@ -1,10 +1,18 @@
 package comunicacion;
+/*
+ * Importamos lo necesario para que el programa funcione.
+ */
 import java.util.Scanner;
+import java.io.*;
 
+/*
+ * Importamos las clases de los distintos paquetes para acceder a sus metodos. 
+ */
 import acciones.Compra;
 import acciones.Pinta;
 import acciones.Venta;
 import otros.Serie;
+import otros.Historico;
 
 public class Menu {
 	public static void main(String args[]) {
@@ -12,12 +20,16 @@ public class Menu {
 		//Utilizaremos el Scanner para poder leer y que el usuario introduzca los valores.
 		Scanner teclado= new Scanner(System.in);
 		
-		//Para entrar en un bucle en el que se muestre el menú para realizar las acciones, crearemos una variable que sea distinta a 8 a no ser que se quiera salir.
-		int opcion = 0; 
+		/*
+		 * Para entrar en un bucle en el que se muestre el menú para realizar las acciones, crearemos una variable que sea distinta a 8 a no ser que se quiera salir.
+		 */
+		int opcion = 0;
 		
 		// creamos la conexion con la base de datos, es decir llamamos a la clase comBD
 		ComBD conexion = new ComBD();
 		conexion.conectar();
+		Historico h0 = new Historico();
+		h0.crearHistorico("Se ha abierto la conexión con la base de datos.");
 		
 		System.out.println("Bienvenido, pongamonos a trabajar.");
 		System.out.println();
@@ -66,12 +78,16 @@ public class Menu {
 				case 1:
 					System.out.println("1.-Mostrar Stock de los coches disponibles.");
 					conexion.muestraStockCoche();
+					Historico h1 = new Historico();
+					h1.crearHistorico("Se han mostrado los coches que hay en Stock.");
 					break;
 				
 				// en caso de que la opcion introducida sea la 2; se mostrarán todos los camiones que hay disponibles en la base de datos.
 				case 2:
 					System.out.println("2.-Mostrar Stock de los camiones disponibles.");
 					conexion.muestraStockCamion();
+					Historico h2 = new Historico();
+					h2.crearHistorico("Se han mostrado los camiones que hay en Stock.");
 					break;
 				
 				// en caso de que la opcion introducida sea la 3; mostrará todos los coches de un mismo color.
@@ -81,6 +97,8 @@ public class Menu {
 					String colo = teclado.nextLine();
 					colo = teclado.nextLine();
 					conexion.muestraColorCoche(colo);
+					Historico h3 = new Historico();
+					h3.crearHistorico("Se han mostrado los coches que hay en color "+colo+".");
 					break;
 				
 				// en caso de que la opcion introducida sea la 4; mostrará todos los camiones de un mismo color.
@@ -90,6 +108,8 @@ public class Menu {
 					String col = teclado.nextLine();
 					col = teclado.nextLine();
 					conexion.muestraColorCamion(col);
+					Historico h4 = new Historico();
+					h4.crearHistorico("Se han mostrado los camiones que hay en color "+col+".");
 					break;
 			    // en caso de que la opcion introducida sea la 5; mostrará las series que hay disponibles
 				case 5:
@@ -99,6 +119,8 @@ public class Menu {
 					System.out.println( "Marca: "+conexion.consultaSerie(codSerie).getMarca());
 					System.out.println( "Modelo: "+conexion.consultaSerie(codSerie).getModelo());
 					System.out.println( "Año de fabricacion: "+conexion.consultaSerie(codSerie).getAñoFabricacion());
+					Historico h5 = new Historico();
+					h5.crearHistorico("Se han mostrado los datos de la serie "+codSerie+".");
 					break;
 				// en caso de que la opcion introducida sea la 6; se elegirá un vehiculo para pintarlo
 				case 6:
@@ -121,13 +143,18 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 9; se habrirá la opcion para exportar datos
 				case 9:
 					System.out.println("9.-Exportar Datos.");
+					Historico h9 = new Historico();
+					h9.crearHistorico("Se han exportado los datos de la base de datos.");
 					break;
 				// en caso de que la opcion introducida sea la 10; se habrirá la opción de importar datos. 
 				case 10:
 					System.out.println("10.-Importar Datos.");
-					
+					Historico h10 = new Historico();
+					h10.crearHistorico("Se han importado los datos de la base de datos.");
 					break;
+				// en caso de que la opcion introducida sea la 11; se habrirá la opción para crear una serie.
 				case 11:
+					System.out.println("11.- Crear serie.");
 					System.out.println("Dime el código de la serie");
 					int codSerie1 = teclado.nextInt();
 					System.out.println("Dime el modelo para introducirlo a la serie.");
@@ -139,6 +166,8 @@ public class Menu {
 					int añoFabricacion = teclado.nextInt();
 					Serie s1 = new Serie(codSerie1, modelo, marca, añoFabricacion);
 					conexion.meteSerie(s1);
+					Historico h11 = new Historico();
+					h11.crearHistorico("Se ha creado la serie de código:"+codSerie1);
 					break;
 			}
 			
@@ -147,6 +176,10 @@ public class Menu {
 		}
 		while(opcion != 12);
 		//FIN del programa
-		System.out.println("Fin del programa");
+		Historico h12 = new Historico();
+		h12.crearHistorico("Se ha cerrado la conexión con la base de datos.");
+		h12.crearHistorico("Fin del programa.");
+		h12.crearHistorico("----------------------------------------------------------------");
+		System.out.println("Fin del programa.");
 	}
 }
