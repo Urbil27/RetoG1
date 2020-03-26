@@ -176,10 +176,13 @@ public class Menu {
 		}
 		while(opcion != 12);
 		//FIN del programa
+
+		conexion.desconectar();
+		System.out.println("Fin del programa");
 		Historico h12 = new Historico();
 		h12.crearHistorico("Se ha cerrado la conexión con la base de datos.");
 		h12.crearHistorico("Fin del programa.");
 		h12.crearHistorico("----------------------------------------------------------------");
-		System.out.println("Fin del programa.");
+
 	}
 }

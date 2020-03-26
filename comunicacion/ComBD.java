@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 
@@ -41,6 +42,15 @@ public class ComBD {
 		}
 		
 	}
+	
+	public void desconectar() {
+		try {
+			conexion.close();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	//Muestra todos los coches que tenemos en Stock y sus caracteristicas
 	
@@ -72,6 +82,7 @@ public class ComBD {
 				System.out.println("Numero de puertas: "+numPuertas);
 				System.out.println("Capacidad del maletero: "+ capacidadMaletero);
 				System.out.println("Pintado: "+ pintado);
+				respuesta.close();
 			}
 		}
 		catch(SQLException e) {
@@ -106,6 +117,7 @@ public class ComBD {
 				System.out.println("Numero de puertas: "+numPuertas);
 				System.out.println("Capacidad del maletero: "+ capacidadMaletero);
 				System.out.println("Pintado: "+ pintado);
+				respuesta.close();
 			}
 		}
 		catch(SQLException e) {
@@ -139,6 +151,7 @@ public class ComBD {
 				System.out.println("Carga: "+carga);
 				System.out.println("Tipo de mercancia: "+ tipoMercancia);
 				System.out.println("Pintado: "+ pintado);
+				respuesta.close();
 			}
 		}
 		catch(SQLException e) {
@@ -176,6 +189,7 @@ public class ComBD {
 				System.out.println("Carga: "+carga);
 				System.out.println("Tipo de mercancia: "+ tipoMercancia);
 				System.out.println("Pintado: "+ pintado);
+				respuesta.close();
 			}
 		}
 		catch(SQLException e) {
@@ -210,7 +224,7 @@ public class ComBD {
 				c1=c2;
 			}
 			
-			
+			respuesta.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -234,6 +248,7 @@ public class ComBD {
 				float capacidadMaletero= cocheAMeter.getCapacidadMaletero();
 				stm.executeUpdate("INSERT into coche (numBastidor, color, numAsientos, precio, pintado, codSerie, matricula, numPuertas, capacidadMaletero) VALUES ("+numBastidor+","+"\""+color+"\""+","+numAsientos+","+precio+","+pintado+","+codSerie+","+"\""+matricula+"\""+","+numPuertas+","+capacidadMaletero+");");
 				System.out.println("El coche se ha añadido correctamente");
+				
 			}
 			catch(SQLException e) {
 				e.printStackTrace();
@@ -310,7 +325,7 @@ public class ComBD {
 				c1=c2;
 			}
 			
-
+			respuesta.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -386,10 +401,12 @@ public class ComBD {
 				otros.Serie s2 = new otros.Serie(cod,modelo,marca,añoFabricacion);
 				s1=s2;
 			}
+			respuesta.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return s1;
 	}
+	
 	}
