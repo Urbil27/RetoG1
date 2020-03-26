@@ -1,15 +1,16 @@
 package acciones;
 import java.util.Scanner;
+import comunicacion.ComBD;
 import vehiculos.*;
 	public class Compra {
 		
 		float precio;
 		String matricula;
-		
-		public Compra(){
-	
+		private ComBD conexion;
+		public Compra(ComBD conexion){
+			this.conexion=conexion;
 		}
-		public comunicacion.ComBD conexion = new comunicacion.ComBD();
+		
 		// Mediante este metodo se comprará un vehiculo introducido por el usuario.
 		public String comprar(){
 			Scanner teclado = new Scanner(System.in);
@@ -87,7 +88,7 @@ import vehiculos.*;
 				System.out.println("introduzca la capacidad del maletero en Litros");
 				float capacidadMaletero = teclado.nextFloat();
 				
-				System.out.println("¿Este coche ha sido pintado?");
+				System.out.println("¿Este coches ha sido pintado?");
 				System.out.println("0) NO");
 				System.out.println("1) SI");
 				int pint = teclado.nextInt();

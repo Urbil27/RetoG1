@@ -1,10 +1,14 @@
 package acciones;
 import java.util.Scanner;
+
 import comunicacion.ComBD;
 public class Venta {
-		
+private ComBD conexion;
+	public Venta(ComBD conexion){
+		this.conexion=conexion;	
+	}
 	public String vender(){
-		ComBD conexion = new ComBD();
+		
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("¿Que vehículo quieres vender?");
 		System.out.println("0) Camion");
@@ -14,6 +18,7 @@ public class Venta {
 			System.out.println("Has elegido la opcion CAMION");
 			System.out.println("Inserte la matricula del camion:");
 			String matricula = teclado.nextLine();
+			matricula = teclado.nextLine();
 			System.out.println("¿Está seguro de que desea vendereste camion?");
 			System.out.println("Matricula: "+ conexion.consultaCamion(matricula).getMatricula());
 			System.out.println("Numero de bastidor: "+ conexion.consultaCamion(matricula).getNumBastidor());

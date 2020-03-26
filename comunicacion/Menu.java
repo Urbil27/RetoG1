@@ -21,6 +21,8 @@ public class Menu {
 		
 		System.out.println("Bienvenido, pongamonos a trabajar.");
 		System.out.println();
+		System.out.println("SELECCIONE EL MÚMERO DE LA OPCION QUE DESEAS");
+		System.out.println();
 		
 		do {
 			
@@ -94,26 +96,26 @@ public class Menu {
 					System.out.println("5.-Mostrar Series.");
 					System.out.println("Introduce el código de la serie que quieres que te muestre:");
 					int codSerie = teclado.nextInt();
-					System.out.println( conexion.consultaSerie(codSerie).getMarca());
-					System.out.println( conexion.consultaSerie(codSerie).getModelo());
-					System.out.println( conexion.consultaSerie(codSerie).getAñoFabricacion());
+					System.out.println( "Marca: "+conexion.consultaSerie(codSerie).getMarca());
+					System.out.println( "Modelo: "+conexion.consultaSerie(codSerie).getModelo());
+					System.out.println( "Año de fabricacion: "+conexion.consultaSerie(codSerie).getAñoFabricacion());
 					break;
 				// en caso de que la opcion introducida sea la 6; se elegirá un vehiculo para pintarlo
 				case 6:
 					System.out.println("6.-Pintar vehículo.");
-					Pinta p1 = new Pinta();
+					Pinta p1 = new Pinta(conexion);
 					p1.pintar();
 					break;
 				// en caso de que la opcion introducida sea la 7; se hbrirá la opción de comprar un vehiculo
 				case 7:
 					System.out.println("7.-Comprar Vehículo.");
-					Compra c1 = new Compra();
+					Compra c1 = new Compra(conexion);
 					c1.comprar();
 					break;
 				// en caso de que la opcion introducida sea la 8; se habrirá la opcion de vender un vehiculo
 				case 8:
 					System.out.println("8.-Vender Vehículo.");
-					Venta v1 = new Venta();
+					Venta v1 = new Venta(conexion);
 					System.out.println(v1.vender());
 					break;
 				// en caso de que la opcion introducida sea la 9; se habrirá la opcion para exportar datos

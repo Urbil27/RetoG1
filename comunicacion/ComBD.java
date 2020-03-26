@@ -34,7 +34,6 @@ public class ComBD {
 		try {
 			
 			conexion = DriverManager.getConnection(URL,USUARIO, CONTRASEÑA);
-			System.out.println("Conexión OK");
 		} 
 		catch (SQLException e) {
 			System.out.println("Error en la conexion");
@@ -63,6 +62,7 @@ public class ComBD {
 				String matricula =respuesta.getString(7);
 				int numPuertas= respuesta.getInt(8);
 				int capacidadMaletero = respuesta.getInt(9);
+				System.out.println("------------------------------------------------");
 				System.out.println("Numero de bastidor: "+ numBastidor);
 				System.out.println("Color: "+color);
 				System.out.println("Numero de asientos: "+numAsientos);
@@ -166,6 +166,7 @@ public class ComBD {
 				String matricula =respuesta.getString(7);
 				float carga= respuesta.getFloat(8);
 				char tipoMercancia = respuesta.getString(9).charAt(0);
+				System.out.println("------------------------------------------------");
 				System.out.println("Numero de bastidor: "+ numBastidor);
 				System.out.println("Color: "+color);
 				System.out.println("Numero de asientos: "+numAsientos);
@@ -193,7 +194,6 @@ public class ComBD {
 		
 		try {
 			stm=conexion.createStatement();
-			System.out.println("SELECT * FROM coche WHERE matricula = \""+matri+"\"");
 			respuesta = stm.executeQuery("SELECT * FROM coche WHERE matricula = \""+matri+"\"");
 			while(respuesta.next()) {
 				int numBastidor=respuesta.getInt(1);
@@ -294,8 +294,7 @@ public class ComBD {
 		
 		try {
 			stm=conexion.createStatement();
-			System.out.println("SELECT * FROM coche WHERE matricula = \""+matri+"\"");
-			respuesta = stm.executeQuery("SELECT * FROM coche WHERE matricula = \""+matri+"\"");
+			respuesta = stm.executeQuery("SELECT * FROM camion WHERE matricula = \""+matri+"\"");
 			while(respuesta.next()) {
 				int numBastidor=respuesta.getInt(1);
 				String color = respuesta.getString(2);
@@ -332,8 +331,8 @@ public class ComBD {
 			String matricula = camionAMeter.getMatricula();
 			float carga= camionAMeter.getCarga();
 			char tipoMercancia= camionAMeter.getTipoMercancia();
-			stm.executeUpdate("INSERT into camion (numBastidor, color, numAsientos, precio, pintado, codSerie, matricula, carga, tipoMercancia) VALUES ("+numBastidor+","+"\""+color+"\""+","+numAsientos+","+precio+","+pintado+","+codSerie+","+"\""+matricula+"\""+","+carga+","+tipoMercancia+");");
-			System.out.println("El coche se ha añadido correctamente");
+			stm.executeUpdate("INSERT into camion (numBastidor, color, numAsientos, precio, pintado, codSerie, matricula, carga, tipoMercancia) VALUES ("+numBastidor+","+"\""+color+"\""+","+numAsientos+","+precio+","+pintado+","+codSerie+","+"\""+matricula+"\""+","+carga+",'"+tipoMercancia+"');");
+			System.out.println("El camión se ha añadido correctamente");
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -346,7 +345,7 @@ public class ComBD {
 		try {
 			stm=conexion.createStatement();
 			String matricula = camionABorrar.getMatricula();
-			stm.executeUpdate("DELETE from coche WHERE matricula=\""+matricula+"\"");
+			stm.executeUpdate("DELETE from camion WHERE matricula=\""+matricula+"\"");
 			System.out.println("Camion eliminado correctamente");
 		}
 		catch(SQLException e) {
@@ -363,7 +362,7 @@ public class ComBD {
 			String modelo = serieAMeter.getModelo();
 			String marca = serieAMeter.getMarca();
 			int añoFabricacion = serieAMeter.getAñoFabricacion();
-			stm.executeUpdate("INSERT into serie (modelo,marca,añoFabricacion) VALUES ("+codSerie+","+"\""+modelo+"\""+","+"\""+marca+"\""+","+"\""+añoFabricacion+"\""+");");
+			stm.executeUpdate("INSERT into serie (codSerie,modelo,marca,añoFabricacion) VALUES ("+codSerie+","+"\""+modelo+"\""+","+"\""+marca+"\""+","+"\""+añoFabricacion+"\""+");");
 
 		}
 		catch(SQLException e) {
@@ -378,7 +377,7 @@ public class ComBD {
 		ResultSet respuesta = null;
 		try {
 			stm=conexion.createStatement();
-			respuesta = stm.executeQuery("SELECT * FROM coche WHERE codSerie = \""+codSerie+"\"");
+			respuesta = stm.executeQuery("SELECT * FROM serie WHERE codSerie = \""+codSerie+"\"");
 			while(respuesta.next()) {
 				int cod = respuesta.getInt(1);
 				String modelo =respuesta.getString(2);

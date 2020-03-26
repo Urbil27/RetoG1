@@ -1,16 +1,16 @@
 package acciones;
 
 import java.util.Scanner;
-
+import comunicacion.ComBD;
 public class Pinta {
 
 	vehiculos.Vehiculo p1;
-	
-	public Pinta(){
-		
+	private ComBD conexion;
+	public Pinta(ComBD conexion){
+		this.conexion = conexion;
 	}
 	
-	public comunicacion.ComBD conexion = new comunicacion.ComBD();
+
 	// Primero y gracias al siguiente metodo se cambiará el color del coche
 	
 	public String pintar() {
