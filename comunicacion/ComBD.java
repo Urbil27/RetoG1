@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+import vehiculos.*;
+import otros.Serie;
 
 
 
@@ -200,9 +201,9 @@ public class ComBD {
 	
 
 	//A este metodo se le pasa una matricula y devuelve el coche que corresponde con esa matricula
-	public vehiculos.Coche consultaCoche(String matri) {
+	public Coche consultaCoche(String matri) {
 		
-		vehiculos.Coche c1= new vehiculos.Coche(0,0,"",0,"",0,0,0,false);
+		Coche c1= new Coche(0,0,"",0,"",0,0,0,false);
 		Statement stm = null;
 		ResultSet respuesta = null;
 		
@@ -220,7 +221,7 @@ public class ComBD {
 				int numPuertas= respuesta.getInt(8);
 				float capacidadMaletero = respuesta.getFloat(9);
 			
-				vehiculos.Coche c2=new vehiculos.Coche(numPuertas, capacidadMaletero,matricula, numBastidor,color, numAsientos,codSerie,precio,pintado);
+				Coche c2=new Coche(numPuertas, capacidadMaletero,matricula, numBastidor,color, numAsientos,codSerie,precio,pintado);
 				c1=c2;
 			}
 			
@@ -233,7 +234,7 @@ public class ComBD {
 	}
 	
 	//A este metodo se le pasa un coche y lo introduce en la base de datos
-	public void meteVehiculo(vehiculos.Coche cocheAMeter) {
+	public void meteVehiculo(Coche cocheAMeter) {
 			Statement stm = null;
 			try {
 				stm=conexion.createStatement();
@@ -257,7 +258,7 @@ public class ComBD {
 	}
 	
 	//A este metodo se le pasa un coche y lo eliminar de la base de datos
-	public void borraVehiculo(vehiculos.Coche cocheABorrar) {
+	public void borraVehiculo(Coche cocheABorrar) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -272,7 +273,7 @@ public class ComBD {
 	}
 	
 	//A este metodo le pasamos un vehiculo y un color y cambia el el color al vehiculo en la base de datos, tyambien pone pintado como true.
-	public void cambiarColor(vehiculos.Vehiculo cocheACambiarElColor, String nuevoColor) {
+	public void cambiarColor(Vehiculo cocheACambiarElColor, String nuevoColor) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -286,7 +287,7 @@ public class ComBD {
 		}
 	}
 	//A este metodo de le pasa un vehiculo y cambia el atributo pintado a true
-	public void pintarVehiculo(vehiculos.Vehiculo vehiculoAPintar) {
+	public void pintarVehiculo(Vehiculo vehiculoAPintar) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -301,9 +302,9 @@ public class ComBD {
 	//A este metodo le pasamos una matricula y nos devuelve el camion que corresponda con esa matricula
 
 
-	public vehiculos.Camion consultaCamion(String matri) {
+	public Camion consultaCamion(String matri) {
 
-		vehiculos.Camion c1= new vehiculos.Camion(0,'a',"",0,"",0,0,0,false);
+		Camion c1= new Camion(0,'a',"",0,"",0,0,0,false);
 		Statement stm = null;
 		ResultSet respuesta = null;
 		
@@ -321,7 +322,7 @@ public class ComBD {
 				float carga= respuesta.getFloat(8);
 				char tipoMercancia = respuesta.getString(9).charAt(0);
 			
-				vehiculos.Camion c2=new vehiculos.Camion(carga, tipoMercancia,matricula, numBastidor,color, numAsientos,codSerie,precio,pintado);
+				Camion c2=new Camion(carga, tipoMercancia,matricula, numBastidor,color, numAsientos,codSerie,precio,pintado);
 				c1=c2;
 			}
 			
@@ -333,7 +334,7 @@ public class ComBD {
 		return c1;
 	}
 	//A este metodo le pasamos un camion y lo introduce en la base de datos
-	public void meteVehiculo(vehiculos.Camion camionAMeter) {
+	public void meteVehiculo(Camion camionAMeter) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -355,7 +356,7 @@ public class ComBD {
 					
 	}
 	//Le pasamos un camion y lo borra de la base de datos
-	public void borraVehiculo(vehiculos.Camion camionABorrar) {
+	public void borraVehiculo(Camion camionABorrar) {
 		Statement stm = null;
 		try {
 			stm=conexion.createStatement();
@@ -368,7 +369,7 @@ public class ComBD {
 		}
 	}
 //Le pasamos una serie y la introduce en la base de datos
-	public void meteSerie(otros.Serie serieAMeter) {
+	public void meteSerie(Serie serieAMeter) {
 		Statement stm = null;
 		
 		try {
@@ -386,8 +387,8 @@ public class ComBD {
 	}
 	
 	//Le pasamos el codigo de serie y nos devuelve una serie
-	public otros.Serie consultaSerie(int codSerie) {
-		otros.Serie s1= new otros.Serie(0,"","",0);
+	public Serie consultaSerie(int codSerie) {
+		Serie s1= new Serie(0,"","",0);
 		Statement stm = null;
 		ResultSet respuesta = null;
 		try {
@@ -398,7 +399,7 @@ public class ComBD {
 				String modelo =respuesta.getString(2);
 				String marca = respuesta.getString(3);
 				int añoFabricacion = respuesta.getInt(4);
-				otros.Serie s2 = new otros.Serie(cod,modelo,marca,añoFabricacion);
+				Serie s2 = new Serie(cod,modelo,marca,añoFabricacion);
 				s1=s2;
 			}
 			respuesta.close();
@@ -409,4 +410,87 @@ public class ComBD {
 		return s1;
 	}
 	
+	//Al llamar a este metodo te devuelve un ArraList de todas las series existentes en la base de datos
+	public ArrayList <Serie> getSeries(){
+		Statement stm = null;
+		ResultSet respuesta = null;
+		ArrayList series = new ArrayList();
+		try {
+			stm=conexion.createStatement();
+			respuesta = stm.executeQuery("SELECT * FROM serie;");
+			
+			while(respuesta.next()) {
+				int cod = respuesta.getInt(1);
+				String modelo =respuesta.getString(2);
+				String marca = respuesta.getString(3);
+				int añoFabricacion = respuesta.getInt(4);
+				Serie s = new Serie(cod,modelo,marca,añoFabricacion);
+				series.add(s);
+			}
+			respuesta.close();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return series;
+	}
+	
+	//Al llamar a este metodo te devuelve un ArrayList de todos los coches existentes en la base de datos
+	public ArrayList <Coche> getCoches(){
+		Statement stm = null;
+		ResultSet respuesta = null;
+		ArrayList coches = new ArrayList();
+		try {
+			stm = conexion.createStatement();
+			respuesta=stm.executeQuery("SELECT * coche;");
+			while(respuesta.next()) {
+				int numBastidor=respuesta.getInt(1);
+				String color = respuesta.getString(2);
+				int numAsientos=respuesta.getInt(3);
+				float precio =respuesta.getFloat(4);
+				boolean pintado = respuesta.getBoolean(5);
+				int codSerie= respuesta.getInt(6);
+				String matricula =respuesta.getString(7);
+				int numPuertas= respuesta.getInt(8);
+				float capacidadMaletero = respuesta.getFloat(9);
+				Coche c=new Coche(numPuertas, capacidadMaletero,matricula, numBastidor,color, numAsientos,codSerie,precio,pintado);
+				coches.add(c);
+			}
+			respuesta.close();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return coches;
+	}
+	
+	//Al llamar a este metodo te devuelve un ArrayList con todos los camiones de la base de datos
+	public ArrayList <Camion> getCamiones(){
+		Statement stm = null;
+		ResultSet respuesta = null;
+		ArrayList camiones = new ArrayList();
+		try {
+			stm = conexion.createStatement();
+			respuesta = stm.executeQuery("SELECT * camion");
+			while(respuesta.next()) {
+				int numBastidor=respuesta.getInt(1);
+				String color = respuesta.getString(2);
+				int numAsientos=respuesta.getInt(3);
+				float precio =respuesta.getFloat(4);
+				boolean pintado = respuesta.getBoolean(5);
+				int codSerie= respuesta.getInt(6);
+				String matricula =respuesta.getString(7);
+				float carga= respuesta.getFloat(8);
+				char tipoMercancia = respuesta.getString(9).charAt(0);
+				Camion c=new Camion(carga, tipoMercancia,matricula, numBastidor,color, numAsientos,codSerie,precio,pintado);
+				camiones.add(c);
+				
+			}
+			respuesta.close();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return camiones;
+	}
 	}
