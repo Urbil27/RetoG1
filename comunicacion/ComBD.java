@@ -379,7 +379,7 @@ public class ComBD {
 			String marca = serieAMeter.getMarca();
 			int añoFabricacion = serieAMeter.getAñoFabricacion();
 			stm.executeUpdate("INSERT into serie (codSerie,modelo,marca,añoFabricacion) VALUES ("+codSerie+","+"\""+modelo+"\""+","+"\""+marca+"\""+","+"\""+añoFabricacion+"\""+");");
-
+			System.out.println("Se ha introducido la serie correctamente en la base de datos.");
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
