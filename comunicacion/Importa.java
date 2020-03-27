@@ -16,19 +16,20 @@ import org.xml.sax.SAXException;
 
 import otros.Serie;
 import vehiculos.Coche;
-
+import java.util.Scanner;
 
 public class Importa {
 public void importar( ) {
-		
-		
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Dime el nombre del archivo a importar sin extension:");
+		String nombre = teclado.nextLine();
 		try {
 			// Creo una instancia de DocumentBuilderFactory
 	        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	        // Creo un documentBuilder
 	        DocumentBuilder builder;
 			builder = factory.newDocumentBuilder();
-			Document documento = builder.parse("prueba.xml");
+			Document documento = builder.parse(nombre+".xml");
 			// Se crean las listas de donde se guardaran los elementos que haya en el xml
 			NodeList listaSeries = documento.getElementsByTagName("serie");
 			NodeList listaCoches = documento.getElementsByTagName("coche");

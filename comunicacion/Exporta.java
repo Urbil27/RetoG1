@@ -15,9 +15,9 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
-import java.util.Iterator;
 import otros.Serie;
 import vehiculos.*;
+import java.util.Scanner;
  
 public class Exporta{
 	
@@ -26,6 +26,9 @@ public class Exporta{
 	}
 	
     public void crearEstructura() {
+    	Scanner teclado = new Scanner(System.in);
+    	System.out.println("Dime el nombre del archivo(Sin extension) a exportar:");
+    	String nombre = teclado.nextLine();
     	
     	// creamos la conexion con la base de datos, es decir llamamos a la clase comBD
     	ComBD conexion = new ComBD();
@@ -222,7 +225,7 @@ public class Exporta{
             // Asocio el source con el Document
             Source source = new DOMSource(documento);
             // Creo el Result, indicado que fichero se va a crear
-            Result result = new StreamResult(new File("Exportar.xml"));
+            Result result = new StreamResult(new File(nombre+".xml"));
  
             // Creo un transformer, se crea el fichero XML
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
