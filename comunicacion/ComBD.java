@@ -68,8 +68,8 @@ public class ComBD {
 				String color = respuesta.getString(2);
 				int numAsientos=respuesta.getInt(3);
 				float precio =respuesta.getFloat(4);
+				boolean pintado = respuesta.getBoolean(5);
 				int codSerie= respuesta.getInt(5);
-				boolean pintado = respuesta.getBoolean(6);
 				String matricula =respuesta.getString(7);
 				int numPuertas= respuesta.getInt(8);
 				int capacidadMaletero = respuesta.getInt(9);
@@ -119,8 +119,9 @@ public class ComBD {
 				System.out.println("Numero de puertas: "+numPuertas);
 				System.out.println("Capacidad del maletero: "+ capacidadMaletero);
 				System.out.println("Pintado: "+ pintado);
-				respuesta.close();
+				
 			}
+			respuesta.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -153,8 +154,9 @@ public class ComBD {
 				System.out.println("Carga: "+carga);
 				System.out.println("Tipo de mercancia: "+ tipoMercancia);
 				System.out.println("Pintado: "+ pintado);
-				respuesta.close();
+				
 			}
+			respuesta.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -176,8 +178,8 @@ public class ComBD {
 				String color = respuesta.getString(2);
 				int numAsientos=respuesta.getInt(3);
 				float precio =respuesta.getFloat(4);
-				int codSerie= respuesta.getInt(5);
-				boolean pintado = respuesta.getBoolean(6);
+				boolean pintado = respuesta.getBoolean(5);
+				int codSerie= respuesta.getInt(6);	
 				String matricula =respuesta.getString(7);
 				float carga= respuesta.getFloat(8);
 				char tipoMercancia = respuesta.getString(9).charAt(0);
@@ -191,8 +193,9 @@ public class ComBD {
 				System.out.println("Carga: "+carga);
 				System.out.println("Tipo de mercancia: "+ tipoMercancia);
 				System.out.println("Pintado: "+ pintado);
-				respuesta.close();
+				
 			}
+			respuesta.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
