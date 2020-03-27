@@ -143,6 +143,8 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 9; se habrirá la opcion para exportar datos
 				case 9:
 					System.out.println("9.-Exportar Datos.");
+					Exporta e = new Exporta();
+					e.crearEstructura();
 					Historico h9 = new Historico();
 					h9.crearHistorico("Se han exportado los datos de la base de datos.");
 					break;

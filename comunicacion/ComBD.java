@@ -443,7 +443,7 @@ public class ComBD {
 		ArrayList coches = new ArrayList();
 		try {
 			stm = conexion.createStatement();
-			respuesta=stm.executeQuery("SELECT * coche;");
+			respuesta=stm.executeQuery("SELECT * FROM coche;");
 			while(respuesta.next()) {
 				int numBastidor=respuesta.getInt(1);
 				String color = respuesta.getString(2);
@@ -472,7 +472,7 @@ public class ComBD {
 		ArrayList camiones = new ArrayList();
 		try {
 			stm = conexion.createStatement();
-			respuesta = stm.executeQuery("SELECT * camion");
+			respuesta = stm.executeQuery("SELECT * FROM camion");
 			while(respuesta.next()) {
 				int numBastidor=respuesta.getInt(1);
 				String color = respuesta.getString(2);
