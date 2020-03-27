@@ -15,6 +15,9 @@ import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
+import java.util.Iterator;
+import otros.Serie;
+import vehiculos.*;
  
 public class Exporta{
 	
@@ -56,26 +59,39 @@ public class Exporta{
             
             // codigo de la serie
             Element codSerie = documento.createElement("codSerie");
-            Text textCodSerie = documento.createTextNode("400");
-            codSerie.appendChild(textCodSerie);
+            Iterator it = conexion.getSeries().iterator();
+            for(Serie s : conexion.getSeries()) {
+            	 Text textCodSerie = documento.createTextNode(""+s.getCodSerie());
+                 codSerie.appendChild(textCodSerie);
+            }
+           
             serie.appendChild(codSerie);
             
             // modelo de vehiculo que tiene esta serie
             Element modelo = documento.createElement("modelo");
-            Text textModelo = documento.createTextNode("400");
-            modelo.appendChild(textModelo);
+            for(Serie s : conexion.getSeries()) {
+            	 Text textModelo = documento.createTextNode(s.getModelo());
+                 modelo.appendChild(textModelo);
+            }
+           
             serie.appendChild(modelo);
             
             // marca del vehiculo de esta serie
             Element marca = documento.createElement("marca");
-            Text textMarca = documento.createTextNode("400");
-            marca.appendChild(textMarca);
+            for(Serie s : conexion.getSeries()) {
+            	Text textMarca = documento.createTextNode(s.getMarca());
+                marca.appendChild(textMarca);
+            }
+            
             serie.appendChild(marca);
             
             // año de fabricacion del vehiculo de esta serie
             Element añoFabricacion = documento.createElement("añoFabricacion");
-            Text textAñoFabricacion = documento.createTextNode("400");
-            añoFabricacion.appendChild(textAñoFabricacion);
+            for(Serie s : conexion.getSeries()) {
+            	 Text textAñoFabricacion = documento.createTextNode(""+s.getAñoFabricacion());
+                 añoFabricacion.appendChild(textAñoFabricacion);
+            }
+           
             serie.appendChild(añoFabricacion);
             
             
@@ -88,56 +104,83 @@ public class Exporta{
             
             //numero de bastidor
             Element numBastidorCoche = documento.createElement("numBastidorCoche");
-            Text textNumBastidorCoche = documento.createTextNode("400");
-            numBastidorCoche.appendChild(textNumBastidorCoche);
+            for(Coche c : conexion.getCoches()) {
+            	Text textNumBastidorCoche = documento.createTextNode(""+c.getNumBastidor());
+                numBastidorCoche.appendChild(textNumBastidorCoche);
+            }
+            
             coche.appendChild(numBastidorCoche);
             
             // color del coche
             Element colorCoche = documento.createElement("colorCoche");
-            Text textColorCoche = documento.createTextNode("400");
-            colorCoche.appendChild(textColorCoche);
+            for(Coche c : conexion.getCoches()) {
+            	 Text textColorCoche = documento.createTextNode(c.getColor());
+                 colorCoche.appendChild(textColorCoche);
+            }
+           
             coche.appendChild(colorCoche);
             
             // numero de asientos que tiene el coche
             Element numAsientosCoche = documento.createElement("numAsientosCoche");
-            Text textNumAsientosCoche = documento.createTextNode("400");
-            numAsientosCoche.appendChild(textNumAsientosCoche);
+            for(Coche c : conexion.getCoches()) {
+            	 Text textNumAsientosCoche = documento.createTextNode(""+c.getNumAsientos());
+                 numAsientosCoche.appendChild(textNumAsientosCoche);
+            }
+           
             coche.appendChild(numAsientosCoche);
             
             // precio del coche
             Element precioCoche = documento.createElement("precioCoche");
-            Text textPrecioCoche = documento.createTextNode("400");
-            precioCoche.appendChild(textPrecioCoche);
+            for(Coche c : conexion.getCoches()) {
+            	 Text textPrecioCoche = documento.createTextNode(""+c.getPrecio());
+                 precioCoche.appendChild(textPrecioCoche);
+            }
+           
             coche.appendChild(precioCoche);
             
             // si el coche esta pintado o no
             Element pintadoCoche = documento.createElement("pintadoCoche");
-            Text textPintadoCoche = documento.createTextNode("400");
-            pintadoCoche.appendChild(textPintadoCoche);
+            for(Coche c : conexion.getCoches()) {
+            	 Text textPintadoCoche = documento.createTextNode(""+c.isPintado());
+                 pintadoCoche.appendChild(textPintadoCoche);
+            }
+           
             coche.appendChild(pintadoCoche);
             
             // el codigo de la serie en la que permanece el coche
             Element codSerieCoche = documento.createElement("codSerieCoche");
-            Text textCodSerieCoche = documento.createTextNode("400");
-            codSerieCoche.appendChild(textCodSerieCoche);
+            for(Coche c : conexion.getCoches()) {
+            	Text textCodSerieCoche = documento.createTextNode(""+c.getSerie());
+                codSerieCoche.appendChild(textCodSerieCoche);
+            }
+            
             coche.appendChild(codSerieCoche);
             
             // Matricula Coche
             Element matriculaCoche = documento.createElement("matriculaCoche");
-            Text textMatriculaCoche = documento.createTextNode("1111AAA");
-            matriculaCoche.appendChild(textMatriculaCoche);
+            for(Coche c : conexion.getCoches()) {
+            	Text textMatriculaCoche = documento.createTextNode(c.getMatricula());
+                matriculaCoche.appendChild(textMatriculaCoche);
+            }
+            
             coche.appendChild(matriculaCoche);
             
             // Numero de puertas del coche
             Element numPuertasCoche = documento.createElement("numPuertasCoche");
-            Text textNumPuertasCoche = documento.createTextNode("4");
-            numPuertasCoche.appendChild(textNumPuertasCoche);
+            for(Coche c: conexion.getCoches()) {
+            	 Text textNumPuertasCoche = documento.createTextNode(""+c.getNumPuertas());
+                 numPuertasCoche.appendChild(textNumPuertasCoche);
+            }
+           
             coche.appendChild(numPuertasCoche);
             
             // Capacidad maletero
             Element capacidadMaleteroCoche = documento.createElement("capacidadMaleteroCoche");
-            Text textCapacidadMaleteroCoche = documento.createTextNode("400");
-            numPuertasCoche.appendChild(textCapacidadMaleteroCoche);
+            for(Coche c : conexion.getCoches()) {
+            	Text textCapacidadMaleteroCoche = documento.createTextNode(""+c.getCapacidadMaletero());
+                numPuertasCoche.appendChild(textCapacidadMaleteroCoche);
+            }
+            
             coche.appendChild(capacidadMaleteroCoche);
             
             
@@ -150,56 +193,83 @@ public class Exporta{
             
             // numero de bastidor del camion
             Element numBastidor = documento.createElement("numBastidor");
-            Text textNumBastidor = documento.createTextNode("400");
-            numBastidor.appendChild(textNumBastidor);
+            for(Camion c :conexion.getCamiones()) {
+            	Text textNumBastidor = documento.createTextNode(""+c.getNumBastidor());
+                numBastidor.appendChild(textNumBastidor);
+            }
+            
             camion.appendChild(numBastidor);
             
             // color del camion
             Element colorCamion = documento.createElement("colorCamion");
-            Text textColorCamion = documento.createTextNode("400");
-            colorCamion.appendChild(textColorCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	Text textColorCamion = documento.createTextNode(c.getColor());
+                colorCamion.appendChild(textColorCamion);
+            }
+            
             camion.appendChild(colorCamion);
             
             // numero de asientos de los que dispone el camion
             Element numAsientosCamion = documento.createElement("numAsientosCamion");
-            Text textNumAsientosCamion = documento.createTextNode("400");
-            numAsientosCamion.appendChild(textNumAsientosCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	 Text textNumAsientosCamion = documento.createTextNode(""+c.getNumAsientos());
+                 numAsientosCamion.appendChild(textNumAsientosCamion);
+            }
+           
             camion.appendChild(numAsientosCamion);
             
             // precio que tiene el camion para su venta
             Element precioCamion = documento.createElement("precioCamion");
-            Text textPrecioCamion = documento.createTextNode("400");
-            precioCamion.appendChild(textPrecioCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	Text textPrecioCamion = documento.createTextNode(""+c.getPrecio());
+                precioCamion.appendChild(textPrecioCamion);
+            }
+            
             camion.appendChild(precioCamion);
             
             // si el camion ha sido pintado o no
             Element pintadoCamion = documento.createElement("pintadoCamion");
-            Text textPintadoCamion = documento.createTextNode("400");
-            pintadoCamion.appendChild(textPintadoCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	 Text textPintadoCamion = documento.createTextNode(""+c.isPintado());
+                 pintadoCamion.appendChild(textPintadoCamion);
+            }
+           
             camion.appendChild(pintadoCamion);
             
             // el codigo de la serie de la que pertenece el camion
             Element codSerieCamion = documento.createElement("codSerieCamion");
-            Text textCodSerieCamion = documento.createTextNode("400");
-            codSerieCamion.appendChild(textCodSerieCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	  Text textCodSerieCamion = documento.createTextNode(""+c.getSerie());
+                  codSerieCamion.appendChild(textCodSerieCamion);
+            }
+          
             camion.appendChild(codSerieCamion);
             
             // matricula del camion
             Element matriculaCamion = documento.createElement("matriculaCamion");
-            Text textMatriculaCamion = documento.createTextNode("400");
-            matriculaCamion.appendChild(textMatriculaCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	Text textMatriculaCamion = documento.createTextNode(c.getMatricula());
+                matriculaCamion.appendChild(textMatriculaCamion);
+            }
+            
             camion.appendChild(matriculaCamion);
             
             // cuanta carga que puede llevar el camion
             Element cargaCamion = documento.createElement("cargaCamion");
-            Text textCargaCamion = documento.createTextNode("400");
-            cargaCamion.appendChild(textCargaCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	 Text textCargaCamion = documento.createTextNode(""+c.getCarga());
+                 cargaCamion.appendChild(textCargaCamion);
+            }
+           
             camion.appendChild(cargaCamion);
             
             // el tipo de mercancia que puede llevar el camion
             Element tipoMercanciaCamion = documento.createElement("tipoMercanciaCamion");
-            Text textTipoMercanciaCamion = documento.createTextNode("400");
-            tipoMercanciaCamion.appendChild(textTipoMercanciaCamion);
+            for(Camion c : conexion.getCamiones()) {
+            	Text textTipoMercanciaCamion = documento.createTextNode(""+c.getTipoMercancia());
+                tipoMercanciaCamion.appendChild(textTipoMercanciaCamion);
+            }
+            
             camion.appendChild(tipoMercanciaCamion);
             
             // --------------------------------------------------------------------

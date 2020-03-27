@@ -83,8 +83,9 @@ public class ComBD {
 				System.out.println("Numero de puertas: "+numPuertas);
 				System.out.println("Capacidad del maletero: "+ capacidadMaletero);
 				System.out.println("Pintado: "+ pintado);
-				respuesta.close();
+				
 			}
+			respuesta.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
