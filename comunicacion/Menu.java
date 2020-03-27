@@ -77,6 +77,7 @@ public class Menu {
 				// en caso de que la opción introducida sea 1;se mostrarán todos los coches que hay disponibles en la base de datos.
 				case 1:
 					System.out.println("1.-Mostrar Stock de los coches disponibles.");
+					System.out.println("");
 					conexion.muestraStockCoche();
 					Historico h1 = new Historico();
 					h1.crearHistorico("Se han mostrado los coches que hay en Stock.");
@@ -85,6 +86,7 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 2; se mostrarán todos los camiones que hay disponibles en la base de datos.
 				case 2:
 					System.out.println("2.-Mostrar Stock de los camiones disponibles.");
+					System.out.println("");
 					conexion.muestraStockCamion();
 					Historico h2 = new Historico();
 					h2.crearHistorico("Se han mostrado los camiones que hay en Stock.");
@@ -93,6 +95,7 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 3; mostrará todos los coches de un mismo color.
 				case 3:
 					System.out.println("3.-Mostrar coches por color.");
+					System.out.println("");
 					System.out.println("Introduce el color que quieres buscar.");
 					String colo = teclado.nextLine();
 					colo = teclado.nextLine();
@@ -104,6 +107,7 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 4; mostrará todos los camiones de un mismo color.
 				case 4:
 					System.out.println("4.-Mostrar camiones por color.");
+					System.out.println("");
 					System.out.println("Introduce el color que quieres buscar.");
 					String col = teclado.nextLine();
 					col = teclado.nextLine();
@@ -114,6 +118,7 @@ public class Menu {
 			    // en caso de que la opcion introducida sea la 5; mostrará las series que hay disponibles
 				case 5:
 					System.out.println("5.-Mostrar Series.");
+					System.out.println("");
 					System.out.println("Introduce el código de la serie que quieres que te muestre:");
 					int codSerie = teclado.nextInt();
 					System.out.println( "Marca: "+conexion.consultaSerie(codSerie).getMarca());
@@ -125,24 +130,28 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 6; se elegirá un vehiculo para pintarlo
 				case 6:
 					System.out.println("6.-Pintar vehículo.");
+					System.out.println("");
 					Pinta p1 = new Pinta(conexion);
 					p1.pintar();
 					break;
 				// en caso de que la opcion introducida sea la 7; se hbrirá la opción de comprar un vehiculo
 				case 7:
 					System.out.println("7.-Comprar Vehículo.");
+					System.out.println("");
 					Compra c1 = new Compra(conexion);
 					c1.comprar();
 					break;
 				// en caso de que la opcion introducida sea la 8; se habrirá la opcion de vender un vehiculo
 				case 8:
 					System.out.println("8.-Vender Vehículo.");
+					System.out.println("");
 					Venta v1 = new Venta(conexion);
 					System.out.println(v1.vender());
 					break;
 				// en caso de que la opcion introducida sea la 9; se habrirá la opcion para exportar datos
 				case 9:
 					System.out.println("9.-Exportar Datos.");
+					System.out.println("");
 					Exporta e = new Exporta();
 					e.crearEstructura();
 					Historico h9 = new Historico();
@@ -151,12 +160,16 @@ public class Menu {
 				// en caso de que la opcion introducida sea la 10; se habrirá la opción de importar datos. 
 				case 10:
 					System.out.println("10.-Importar Datos.");
+					System.out.println("");
+					Importa pr = new Importa();
+					pr.importar();
 					Historico h10 = new Historico();
 					h10.crearHistorico("Se han importado los datos de la base de datos.");
 					break;
 				// en caso de que la opcion introducida sea la 11; se habrirá la opción para crear una serie.
 				case 11:
 					System.out.println("11.- Crear serie.");
+					System.out.println("");
 					System.out.println("Dime el código de la serie");
 					int codSerie1 = teclado.nextInt();
 					System.out.println("Dime el modelo para introducirlo a la serie.");

@@ -1,57 +1,94 @@
 package comunicacion;
 
 
-import java.io.File;
+import java.io.IOException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
- 
+import org.xml.sax.SAXException;
+
+import otros.Serie;
+import vehiculos.Coche;
+
 
 public class Importa {
-	/*
-	public static void importar() {
+public void importar( ) {
+		
+		
 		try {
-			File archivo = new File("prueba.xml");
-			DocumentBuilderFactory = new DocumentBuilderFactory.newInstance();
-			DocumentBuilder documentBuilder = factory.newDocumentBuilder();
-			Document document = documentBuilder.parse(archivo);
-			
-			document.getDocumentElement().normalize();
-			
-			System.out.println("Elemento raiz: "+document.getDocumentElement().getNodeName());
-			
-			NodeList listaPrueba = document.getElementsByTagName("prueba");
-			
-			for(int i = 0; i< listaPrueba.getLength();i++) {
-				Node nodo = listaPrueba.item(i);
-				//System.out.println("Elemento: "+nodo.getNodoName());
-				
+			// Creo una instancia de DocumentBuilderFactory
+	        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	        // Creo un documentBuilder
+	        DocumentBuilder builder;
+			builder = factory.newDocumentBuilder();
+			Document documento = builder.parse("prueba.xml");
+			// Se crean las listas de donde se guardaran los elementos que haya en el xml
+			NodeList listaSeries = documento.getElementsByTagName("serie");
+			NodeList listaCoches = documento.getElementsByTagName("coche");
+			NodeList listaCamiones = documento.getElementsByTagName("camion");
+			  
+			//Se entra en un bucle donde se recorrerá todo el xml mientras hayan atributos
+			for(int c=0; c< listaSeries.getLength(); c++) {
+				Node nodo = listaSeries.item(c);
 				if(nodo.getNodeType() == Node.ELEMENT_NODE) {
-					Element element = (Element) nodo;
-					System.out.println("ID: "+element.getElementsByTagName("ID").item(0).getTextContent());
-					System.out.println("Name: "+element.getElementsByTagName("Name").item(0).getTextContent());
-					System.out.println("TLF: "+element.getElementsByTagName("TLF").item(0).getTextContent());
-					System.out.println("");
+					Element e = (Element) nodo;
+					NodeList hijos = e.getChildNodes();
+					for(int x=0; x < hijos.getLength(); x++) {
+						Node hijo = hijos.item(x);
+						if(hijo.getNodeType() == Node.ELEMENT_NODE) {
+							Element eHijo = (Element)hijo;
+							System.out.println(hijo.getTextContent());
+						}
+					}
+					System.out.println("---------------------------------------");
 				}
 				
 			}
-		}
-		catch(Exception e) {
+			
+			for(int c=0; c< listaCoches.getLength(); c++) {
+				Node nodo = listaCoches.item(c);
+				if(nodo.getNodeType() == Node.ELEMENT_NODE) {
+					Element e = (Element) nodo;
+					NodeList hijos = e.getChildNodes();
+					for(int x=0; x < hijos.getLength(); x++) {
+						Node hijo = hijos.item(x);
+						if(hijo.getNodeType() == Node.ELEMENT_NODE) {
+							Element eHijo = (Element)hijo;
+							System.out.println(hijo.getTextContent());
+						}
+					}
+					System.out.println("---------------------------------------");
+				}
+				
+			}
+			
+			for(int c=0; c< listaCamiones.getLength(); c++) {
+				Node nodo = listaCamiones.item(c);
+				if(nodo.getNodeType() == Node.ELEMENT_NODE) {
+					Element e = (Element) nodo;
+					NodeList hijos = e.getChildNodes();
+					for(int x=0; x < hijos.getLength(); x++) {
+						Node hijo = hijos.item(x);
+						if(hijo.getNodeType() == Node.ELEMENT_NODE) {
+							Element eHijo = (Element)hijo;
+							System.out.println(hijo.getTextContent());
+						}
+					}
+					System.out.println("---------------------------------------");
+				}
+				
+			}
+			  
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}     
 	}
-*/
 }
