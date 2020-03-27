@@ -60,7 +60,6 @@ public class Exporta{
             // codigo de la serie
                 
             Element codSerie = documento.createElement("codSerie");
-            Iterator it = conexion.getSeries().iterator();
             Text textCodSerie = documento.createTextNode(""+s.getCodSerie());
             codSerie.appendChild(textCodSerie);
             serie.appendChild(codSerie);
